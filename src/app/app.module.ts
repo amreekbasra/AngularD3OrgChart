@@ -3,10 +3,12 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { HierarchyChartComponent } from './components/hierarchy-chart/hierarchy-chart.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HierarchyChartComponent
   ],
   imports: [
     BrowserModule,
