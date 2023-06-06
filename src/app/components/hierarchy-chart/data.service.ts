@@ -74,7 +74,9 @@ expanded= false
         connectorLineColor: this.connectorLineColor,
         connectorLineWidth: this.connectorLineWidth,
         dashArray:'',
-        expanded: counter>10 ?false: true
+        expanded: counter>1000 ?false: true,
+        highlighted : d.highlighted,
+        centered: d.centered
       }
      
       return dam;

@@ -19,14 +19,29 @@ export class HierarchyChartComponent implements OnInit {
       this.chart = new TreeChart();
       d3.json(
         "https://gist.githubusercontent.com/bumbeishvili/dc0d47bc95ef359fdc75b63cd65edaf2/raw/c33a3a1ef4ba927e3e92b81600c8c6ada345c64b/orgChart.json"
-       ).then((data: any) => {       
+       ).then((res: any) => {       
          this.data=[];
+         let dat = res;
+        // console.log('outside this.data', this.data);
+         let prevIndex = 0;
+        // setInterval(d => {
+          dat[prevIndex]['highlighted'] = false;
+           let index = Math.floor(Math.random() * 10);
+           prevIndex = index;
+           dat[index]['centered'] = true;
+           dat[index]['expanded'] = true;
+           dat[index]['highlighted'] = true;
+          // this.data = Object.assign([], dat);
+           this.data =  this.dService.getEmbeddedHirarchy(dat)
+           
+           // });     
+            //  this.data = Object.assign([], data);
+             // console.log('test data', data)
+            
+          this.updateChart()
+        // }, 1000);
         // data.forEach(element => {
-        data =  this.dService.getEmbeddedHirarchy(data)
-        // });     
-           this.data = Object.assign([], data);
-          // console.log('test data', data)
-           this.updateChart()
+          console.log('inside this.data', this.data);
        });
       
    }
